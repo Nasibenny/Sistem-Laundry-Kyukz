@@ -69,7 +69,7 @@ include 'koneksi.php';
                                         $grand = mysqli_fetch_row(mysqli_query($koneksi, "SELECT SUM(total_harga) FROM tb_detail_transaksi INNER JOIN tb_paket ON tb_detail_transaksi.id_paket=tb_paket.id_paket WHERE id_transaksi"));
                                         // $tampil = mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT total_harga FROM tb_detil_transaksi WHERE id_detail "));
                                     ?>
-                              <h5 class="card-title">Total Pendapatan</h5>
+                              <h5 class="card-title">Total Pendapatn</h5>
                               <?php
                                         if($grand['0'] == null){
                                             $grand['0'] = 0;
