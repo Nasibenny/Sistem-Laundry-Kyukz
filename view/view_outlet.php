@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-between">
     <h4 class="my-4">Data Outlet</h4>
-    <a class="btn btn-success my-4" href="index.php?page=tambah_outlet">
+    <a class="btn btn-success my-4" href="dashboard.php?page=tambah_outlet">
         + Tambah Outlet
     </a>
 </div>
