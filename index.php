@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -11,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   
     <link rel="icon" type="image/png" href="./img/island_wht.svg">
+    <!-- SweetAlert  -->
+     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.js"></script>
   </head>
   
   <style>
@@ -23,11 +30,39 @@
     }
   </style>
 <body >
+   
 
 <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center ">
+  <?php
+    
+    if (isset($_SESSION['login_error'])) {
+    // Menampilkan SweetAlert2 jika login gagal
+    echo "<script>
+            Swal.fire({
+                title: 'Gagal!',
+                text: '" . $_SESSION['login_error'] . "',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+          </script>";
+    unset($_SESSION['login_error']);
+    }
+    $_SESSION['logout_success'] = "Berhasil logout";
+    if (isset($_SESSION['logout_success'])) {
+        // Menampilkan SweetAlert2 jika logout berhasil
+        echo "<script>
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: '" . $_SESSION['logout_success'] . "',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            </script>";
+        unset($_SESSION['logout_success']); // Hapus session setelah alert ditampilkan
+    }
+    ?>
       <div class="text-center mb-4">
-        <img class="mb-2" src="./img/island.svg" style="width:100px" alt="">
-        <h1 class="fs-3 text-center fw-bold">Sign in</h1>
+        <img class="mb-2" src="./img/laundry.png" style="width:200px" alt="">
       </div>
 
   <div class=" ">

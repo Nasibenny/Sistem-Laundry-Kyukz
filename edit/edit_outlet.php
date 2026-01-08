@@ -16,7 +16,7 @@
     <h1>EDIT OUTLET</h1>
     <br>
 
-    <form action="edit/proses_outlet.php" method="POST">
+    <form action="edit/proses_edit_outlet.php" method="POST">
         <input type="text" hidden name="id_outlet" value="<?=$id?>">
         <table cellpadding="10">
             <tr>

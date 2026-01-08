@@ -20,23 +20,29 @@
         <?php
         $no = 1;
         $data = mysqli_query($koneksi, "SELECT * FROM tb_outlet");
-        while ($row = mysqli_fetch_assoc($data)) {
+        while($baris = mysqli_fetch_assoc($data)){
+            // Cek apakah member memiliki transaksi yang terkait
+            $id_outlet = $baris['id_outlet'];
+            $cek_outlet = mysqli_query($koneksi, "SELECT * FROM tb_paket WHERE id_outlet = '$id_outlet'");
+            $berisi_paket = mysqli_num_rows($cek_outlet);
+     
         ?>
             <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $row['nama'] ?></td>
-                <td><?= $row['alamat'] ?></td>
-                <td><?= $row['tlp'] ?></td>
+                <td><?= $baris['nama'] ?></td>
+                <td><?= $baris['alamat'] ?></td>
+                <td><?= $baris['tlp'] ?></td>
                 <td>
-                    <a class="btn btn-warning btn-sm"
-                       href="index.php?page=edit_outlet&id=<?= $row['id_outlet'] ?>">
+                    <a class="btn btn-warning btn-sm" href="dashboard.php?page=edit_outlet&id=<?= $baris['id_outlet'] ?> ">
                         Edit
                     </a>
-                    <a class="btn btn-danger btn-sm"
-                       href="delete/delete_outlet.php?id=<?= $row['id_outlet'] ?>"
-                       onclick="return confirm('Yakin ingin menghapus data outlet ini?')">
-                        Hapus
-                    </a>
+                     <?php if ($berisi_paket == 0) { ?>
+                                    <a class="btn btn-danger btn-sm" href="./delete/delete_outlet.php?id_outlet=<?=$baris['id_outlet']?>">Delete</a>
+                                <?php } else { ?>
+                                    <button class="btn btn-danger btn-sm" disabled>Delete</button>
+                     <?php } ?>
+
+                   
                 </td>
             </tr>
         <?php } ?>

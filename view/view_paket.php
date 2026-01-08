@@ -70,8 +70,9 @@
                 </td>
 
                     <?php
-                    }else{
-                        echo"</td>";
+                    }else{?>
+                      <button class="btn btn-danger" disabled>Delete</button>
+                    <?php 
                     }
                     ?>
             </tr>

@@ -1,8 +1,22 @@
 <?php
 include 'koneksi.php';
-
+if (isset($_SESSION['login_success'])) {
+    // Menampilkan SweetAlert2 jika login berhasil
+    echo "<script>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '" . $_SESSION['login_success'] . "',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+          </script>";
+    unset($_SESSION['login_success']);
+}
 ?>
+
 <div class="container pl-5">
+
+
   <div class="mb-3">
      <?php
               $tampil = mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT nama FROM tb_outlet WHERE id_outlet=' $_SESSION[id_outlet]' "));

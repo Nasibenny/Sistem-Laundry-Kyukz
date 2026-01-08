@@ -18,9 +18,13 @@ if($cek > 0){
     @$_SESSION['idtransaksi'];
     $_SESSION['id_outlet'] = $data_user['id_outlet'];
   
-    echo "<script>alert('berhasil login');window.location.href='dashboard.php?page=dashboard'</script>";
+     // Menyimpan session login sukses
+    $_SESSION['login_success'] = "Berhasil login!";
+    header('Location: dashboard.php?page=dashboard'); // Redirect ke dashboard
 }else{
-    echo "<script>alert('gagal login');window.location.href='index.php'</script>";
+    $_SESSION['login_error'] = "Gagal login!";
+    header('Location: index.php'); // Kembali ke halaman login
+
 }
 
 ?>

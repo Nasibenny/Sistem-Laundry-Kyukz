@@ -31,9 +31,8 @@
 
 <div class="container  min-vh-100 d-flex flex-column justify-content-center align-items-center p-3 ">
       <div class="text-center mb-4">
-        <img class="mb-2" src="../img/island.svg" style="width:100px" alt="">
+        <img class="mb-2" src="../img/laundry.png" style="width:200px" alt="">
          <!-- <i class="lni lni-island"></i> -->
-        <h1 class="fs-3 text-center fw-bold">Register</h1>
       </div>
 
   <div class=" ">

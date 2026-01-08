@@ -8,6 +8,10 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LaundryPesisir | laundry</title>
+    <!-- SweetAlert  -->
+     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.js"></script>
+    
     <!-- Online -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Offline -->
@@ -29,11 +33,12 @@ session_start();
     
         <div class="d-flex">
           <button id="toggle-btn" type="button">
-                <i class="lni lni-island"></i>
+                <img class="" src="./img/laundry-wht.png" style="width:52px" alt="">
+
           </button>
     <!-- Logo -->
           <div class="sidebar-logo">
-              <a href="#">LaundryPesisir</a>
+              <!-- <a href="#">LaundryPesisir</a> -->
           </div>
         </div>
     <!-- Logo -->

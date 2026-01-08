@@ -1,5 +1,8 @@
 <?php
 session_start();
+session_unset();
 session_destroy();
-echo "<script>alert('Berhasil Logout');window.location.href='index.php';</script>";
+
+// Redirect kembali ke halaman login setelah logout
+header('Location: index.php'); 
 ?>
