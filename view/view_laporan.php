@@ -213,19 +213,29 @@ if(@$_SESSION['role'] == 'admin' OR @$_SESSION['role'] == 'owner'){
                                 Diambil
                             </option>
                         </select>
-                        <script>
-                   
-                     function pilihStatus2(value, id) {
-                        // Menyimpan status yang dipilih dan ID transaksi
-    var currentStatus = new URLSearchParams(window.location.search).get('status');
-    
-    // Buat URL yang akan digunakan untuk mengubah status item tertentu
-    var url = 'edit/proses_edit_status_laporan.php?status=' + value + '&id=' + id + '&currentStatus=' + currentStatus;
+    <script>
+function pilihStatus2(status, id) {
 
-    // Arahkan ke URL tersebut untuk mengupdate status item tanpa mengubah filter di table head
-    window.location.href = url;
-                    }
-                        </script>
+    // Ambil status filter laporan (agar tidak reset halaman)
+    let currentStatus = new URLSearchParams(window.location.search).get('status');
+    if (!currentStatus) currentStatus = 'semua';
+
+    // Konfirmasi hanya jika selesai
+    if(status === 'selesai'){
+        if(!confirm('Kirim notifikasi WhatsApp ke pelanggan?')){
+            return;
+        }
+    }
+
+    // Redirect ke PHP (PHP yg kirim WA)
+    window.location.href =
+        'edit/proses_edit_status_laporan.php' +
+        '?id=' + id +
+        '&status=' + status +
+        '&currentStatus=' + currentStatus;
+}
+</script>
+
 
                         <?php
                     if($baris['dibayar'] == 'belum_dibayar'){
